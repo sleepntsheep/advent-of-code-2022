@@ -1,0 +1,30 @@
+#!/bin/sh
+
+if [ "$1" = "clean" ]
+then
+    rm *.bin
+else
+    for i in $(seq 25)
+    do
+        for j in $(seq 2)
+        do
+            pref="${i}_${j}"
+            src="$pref.c"
+            bin="$pref.bin"
+            in="$i.in"
+            if [ -f "$src" ]
+            then
+                cc "$src" -o "$bin"
+            fi
+            if [ -f "$bin" -o -f "$in" ]
+            then
+                printf "$(tput bold)$(tput setaf 4)Day: $i$(tput sgr 0)"
+                printf "\tPart $j: "
+                printf "$(tput setaf 3)"
+                cat "./$in" | "./${bin}"
+                printf "\n"
+            fi
+        done
+    done
+fi
+
