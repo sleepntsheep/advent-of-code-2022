@@ -6,22 +6,47 @@ then
 else
     for i in $(seq 25)
     do
+        day_on=false
+        for j in $(seq 2)
+        do
+            if [ -f "${i}_${j}.c" ]
+            then
+                day_on=true
+            fi
+        done
+
+        if [ "$day_on" != true ]
+        then
+            continue
+        fi
+
+        tput bold
+        printf "Day: $i\n"
+        tput sgr 0
+
+        in="$i.in"
+
+        if ! [ -f "$in" ]
+        then
+            printf "Input file not existing."
+            continue
+        fi
+
         for j in $(seq 2)
         do
             pref="${i}_${j}"
             src="$pref.c"
             bin="$pref.bin"
-            in="$i.in"
             if [ -f "$src" ]
             then
                 cc "$src" -o "$bin"
             fi
-            if [ -f "$bin" -o -f "$in" ]
+            if [ -f "$bin" ]
             then
-                printf "$(tput bold)$(tput setaf 4)Day: $i$(tput sgr 0)"
                 printf "\tPart $j: "
-                printf "$(tput setaf 3)"
+                tput setaf 3
                 cat "./$in" | "./${bin}"
+                tput sgr 0
                 printf "\n"
             fi
         done
