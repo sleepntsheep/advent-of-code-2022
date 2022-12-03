@@ -14,12 +14,9 @@ int main(void)
     for (; fgets(b, sizeof b, stdin); c = (c+1)%3) {
         if (*b == 10) continue;
         if (!c) memset(d, 0, sizeof d);
-        for (char *p = b; *p && *p != '\n'; *p++)
-            if (d[*p] & (1 << (c + 4))) continue;
-            else {
-                sum += priority(*p) * ((++d[*p] & 3) == 3);
-                d[*p] |= (1 << (c + 4));
-            }
+        for (char *p = b; *p && *p != '\n'; p++)
+            if (d[*p] & (1 << c)) continue;
+            else if ((d[*p] |= (1 << c)) == 7) sum += priority(*p);
     }
     printf("%d", sum);
     return EXIT_SUCCESS;
