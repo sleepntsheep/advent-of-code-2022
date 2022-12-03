@@ -5,10 +5,7 @@
 
 #define BFSIZE (1 << 14)
 
-int maxi(int a, int b)
-{
-    return a > b ? a : b;
-}
+int maxi(int a, int b) { return a > b ? a : b; }
 
 int main(void)
 {
