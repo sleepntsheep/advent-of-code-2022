@@ -44,6 +44,7 @@ int main(void) {
             if (sscanf(buf, " move %d from %d to %d", &nm, &from, &to) != 3)
                 continue;
             assert(ap[from] >= nm && "Moving from empty stack, wrong input?");
+            assert(ap[to] + nm < NCRATE && "NCRATE too small");
             for (int i = 0; i < nm; i++)
                 a[to][ap[to]++] = a[from][--ap[from]];
             memcpy(a2[to] + ap[to] - nm, a2[from] + ap[from], nm);
