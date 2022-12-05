@@ -1,32 +1,24 @@
 #!/bin/sh
 
-if [ "$1" = "clean" ]
-then
+clean() {
     rm *.bin
-    exit
-fi
+}
 
 day_exists() {
-    for j in 1 2
-    do
-        [ -f "${1}_${j}.c" ] && return 0
-    done
+    [ -f "$1.c" ] && return 0
     return 1
 }
 
 compile_day() {
-    for j in 1 2
-    do
-        pref="${1}_${j}"
-        src="$pref.c"
-        bin="$pref.bin"
-        [ -f "$src" ] && cc "$src" -o "$bin"
-    done
+    src="$i.c"
+    bin="$i.bin"
+    [ -f "$src" ] || continue
+    cc "$src" -o "$bin"
 }
 
 run_day() {
     tput bold
-    printf "Day: $i\n"
+    printf "Day $i:  "
     tput sgr 0
 
     in="${1}.in"
@@ -37,17 +29,19 @@ run_day() {
         continue
     fi
 
-    for j in 1 2
-    do
-        bin="${1}_${j}.bin"
-        [ -f "$bin" ] || continue
-        printf "\t$j: "
-        tput setaf 3
-        cat "$in" | "./${bin}"
-        tput sgr 0
-        printf "\n"
-    done
+    bin="$1.bin"
+    [ -f "$bin" ] || continue
+    tput setaf 3
+    "./${bin}" < "$in"
+    tput sgr 0
+    printf "\n"
 }
+
+if [ "$1" = "clean" ]
+then
+    clean
+    exit
+fi
 
 for i in $(seq 25)
 do
@@ -55,5 +49,6 @@ do
     compile_day "$i"
     run_day "$i"
 done
+clean
 
 
