@@ -65,6 +65,7 @@ for i = 1, NSTACK do
     end
 end
 
+io.write('\n')
 
 
 
