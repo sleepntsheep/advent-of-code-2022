@@ -19,11 +19,7 @@ end
 
 for line in io.lines() do
     if line ~= '' then
-        io.write(marker_find(line, 4))
-        io.write(' ')
-        io.write(marker_find(line, 14))
+        print(string.format("%d %d\n", marker_find(line, 4), marker_find(line, 14)))
     end
 end
-
-io.write('\n')
 
