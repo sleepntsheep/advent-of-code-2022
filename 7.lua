@@ -68,7 +68,6 @@ for line in io.lines() do
             end
             cwd = cwd.childmap[path]
         end
-        print("Cwd changed to", cwd.name)
     elseif line:sub(3, 4) == 'ls' then
     elseif line:sub(1, 3) == 'dir' then
         local name = line:match("dir%s+(.+)%s*")
@@ -86,7 +85,6 @@ local all_entity = dfs_directory(root)
 local sub_1e5 = 0
 for _, ent in ipairs(all_entity) do
     if ent.size <= 100000 and ent.type == Type.Directory then
-        print(ent.name, ent.size, #ent.children)
         sub_1e5 = sub_1e5 + ent.size
     end
 end
