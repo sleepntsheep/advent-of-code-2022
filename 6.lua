@@ -19,7 +19,7 @@ end
 
 for line in io.lines() do
     if line ~= '' then
-        print(string.format("%d %d\n", marker_find(line, 4), marker_find(line, 14)))
+        print(string.format("%d %d", marker_find(line, 4), marker_find(line, 14)))
     end
 end
 
