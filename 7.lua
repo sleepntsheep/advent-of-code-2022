@@ -21,9 +21,14 @@ local function make_file(name, size, parent)
 end
 
 local function update_size(node, delta)
-    node.size = node.size + delta
-    if node.parent then
-        update_size(node.parent, delta)
+    local stack = { node }
+
+    while #stack > 0 do
+        local entity = table.remove(stack)
+        entity.size = entity.size + delta
+        if entity.parent then
+            table.insert(stack, entity.parent)
+        end
     end
 end
 
