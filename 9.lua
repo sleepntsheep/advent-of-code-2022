@@ -1,10 +1,9 @@
 
-Direction = { Up = 1, Left = 2, Down = 3, Right = 4 }
 Adjacent4 = {
-    [Direction.Up] = {x = 0, y = -1},
-    [Direction.Left] = {x = -1, y = 0},
-    [Direction.Down] = {x = 0, y = 1},
-    [Direction.Right] = {x = 1, y = 0}
+    U = {x = 0, y = -1},
+    L = {x = -1, y = 0},
+    D = {x = 0, y = 1},
+    R = {x = 1, y = 0}
 }
 
 local function need_to_follow(head, tail)
@@ -55,9 +54,8 @@ end
 
 for line in io.lines() do
     if line ~= '' then
-        local char_dir, dist = line:match("(.+) (%d+)%s*")
+        local direction, dist = line:match("(.+) (%d+)%s*")
         dist = tonumber(dist)
-        local direction, _ = string.find("ULDR", char_dir)
 
         knots[1].x = knots[1].x + Adjacent4[direction].x * dist
         knots[1].y = knots[1].y + Adjacent4[direction].y * dist
