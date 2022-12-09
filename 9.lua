@@ -12,6 +12,7 @@ local function need_to_follow(head, tail)
 end
 
 local function follow(head, tail)
+    -- help im dying reading this, im sorry
     if need_to_follow(head, tail) then
         if head.x == tail.x then
             tail.y = tail.y + (head.y > tail.y and 1 or -1)
