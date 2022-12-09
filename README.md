@@ -2,7 +2,7 @@
 
 Advent of code 2022
 
-### Bulid instruction
+### Build instruction
 
-run `build` file, it will compile and run every day and part that exists.
+run `build.sh` file, it will compile and run every day and part that exists.
 

@@ -1,7 +1,4 @@
-
-
 local trees = {}
-
 local nrow = 0
 
 for line in io.lines() do
@@ -12,7 +9,6 @@ for line in io.lines() do
                 local n = tonumber(line:sub(i, i))
                 trees[#trees][i] = {
                     v = n, u = n, r = n, l = n, d = n,
-                    out = { u = 0, r = 0, l = 0, d = 0 }
                 }
             end
         end
