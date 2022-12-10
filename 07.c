@@ -66,7 +66,7 @@ void Directory_Add_Entity(struct Entity *parent, struct Entity *child) {
     Entity_Update_Size(parent, child->size);
     if (parent->children_alloc == parent->children_count) {
         parent->children_alloc = maxi(4, parent->children_alloc * 2);
-        parent->children = realloc(parent->children, sizeof *parent->children * parent->children_alloc);
+        parent->children = realloc(parent->children, sizeof *(parent->children) * parent->children_alloc);
     }
     parent->children[parent->children_count++] = child;
     child->parent = parent;
@@ -75,6 +75,7 @@ void Directory_Add_Entity(struct Entity *parent, struct Entity *child) {
 void Entity_Free(struct Entity *ent) {
     for (size_t i = 0; i < ent->children_count; i++)
         Entity_Free(ent->children[i]);
+    free(ent->children);
     free(ent);
 }
 
@@ -158,7 +159,7 @@ int main(void) {
 
     Entity_Free(root);
 
-    printf("%d %zu", count, data[1]);
+    printf("%zu %zu", count, data[1]);
     return EXIT_SUCCESS;
 }
 
