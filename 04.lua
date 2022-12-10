@@ -1,5 +1,3 @@
--- overlap, contain
-
 local function isnotoverlap(p1, p2)
     return p1.a > p2.b or p1.b < p2.a
 end
