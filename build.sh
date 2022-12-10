@@ -19,7 +19,7 @@ do_c() {
     printf "C\n"
     tput sgr 0
 
-    for i in $(seq 25)
+    for i in $(seq -w 25)
     do
         [ -f "$i.c" ] || continue
         check_input "$i" || continue
@@ -41,7 +41,7 @@ do_lua() {
     printf "\nLua\n"
     tput sgr 0
 
-    for i in $(seq 25)
+    for i in $(seq -w 25)
     do
         [ -f "$i.lua" ] || continue
         check_input "$i" || continue
