@@ -56,10 +56,8 @@ for line in io.lines() do
     if line ~= '' then
         local direction, dist = line:match("(.+) (%d+)%s*")
         dist = tonumber(dist)
-
         knots[1].x = knots[1].x + Adjacent4[direction].x * dist
         knots[1].y = knots[1].y + Adjacent4[direction].y * dist
-
         while need_to_follow(knots[1], knots[2]) do
             follow(knots[1], knots[2])
         end
