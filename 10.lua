@@ -17,10 +17,9 @@ for line in io.lines() do
     if line == 'noop' then
         do_cycle()
     elseif line:sub(1,4) == 'addx' then
-        local add = tonumber(line:match("addx (-?%d+)"))
         do_cycle()
         do_cycle()
-        X = X + add
+        X = X + tonumber(line:match("addx (-?%d+)"))
     end
 end
 
