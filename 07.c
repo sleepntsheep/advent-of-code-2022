@@ -73,6 +73,7 @@ void Directory_Add_Entity(struct Entity *parent, struct Entity *child) {
 }
 
 void Entity_Free(struct Entity *ent) {
+    assert(ent);
     for (size_t i = 0; i < ent->children_count; i++)
         Entity_Free(ent->children[i]);
     free(ent->children);
@@ -153,8 +154,7 @@ int main(void) {
 
     // part 2
     assert(root->size < 70000000);
-    size_t need = 30000000 - (70000000 - root->size);
-    size_t data[2] = { need, 1e9 /* return */ };
+    size_t data[2] = {30000000 - (70000000 - root->size), 1e9};
     Directory_DepthTraverse(root, traverse_get_smallest_directory_with_atleast_n_size, data);
 
     Entity_Free(root);
