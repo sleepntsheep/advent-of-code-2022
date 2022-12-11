@@ -1,3 +1,15 @@
+local function gcd(a, b)
+	if b ~= 0 then
+		return gcd(b, a % b)
+	else
+		return math.abs(a)
+	end
+end
+
+local function lcm(a, b)
+    return a * b / gcd(a, b)
+end
+
 local input = {}
 for line in io.lines() do table.insert(input, line) end
 
@@ -18,7 +30,7 @@ local function parse(lines)
             monkey.ontrue = lines[linei + 4]:match("%s*If true: throw to monkey (%d+)") + 1
             monkey.onfalse = lines[linei + 5]:match("%s*If false: throw to monkey (%d+)") + 1
             table.insert(monkey_list, monkey)
-            monkey_list.lcm = monkey_list.lcm * monkey.modulo
+            monkey_list.lcm = lcm(monkey_list.lcm, monkey.modulo)
             linei = linei + 6
         else
             linei = linei + 1
@@ -53,7 +65,7 @@ end
 local part1_monkeys = parse(input)
 for _ = 1, 20 do doround(part1_monkeys, true) end
 table.sort(part1_monkeys, function(a, b) return a.activity > b.activity end)
-print(part1_monkeys[1].activity * part1_monkeys[2].activity)
+io.write(part1_monkeys[1].activity * part1_monkeys[2].activity..' ')
 
 local part2_monkeys = parse(input)
 for _ = 1, 10000 do doround(part2_monkeys, false) end
