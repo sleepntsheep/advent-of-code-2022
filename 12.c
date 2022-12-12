@@ -1,6 +1,6 @@
 #include "a.h"
 #define N 1000
-I dp[N][N],i,m,j,k,n,sx,sy,ex,ey=-1,dx[]={0,0,-1,1},dy[4]={1,-1};B b[N][N],h=1,t;
+I dp[N][N],i,m,j,k,n,sx,sy,ex,ey=-1,dx[]={0,0,-1,1},dy[4]={1,-1};B b[N][N];I h=1,t;
 TD S{I y,x;}P;P q[N*N];
 V BFS(V) {
     W(h-t,P p=q[t++]; LP(i,4,P np={p.y+dy[i],p.x+dx[i]};

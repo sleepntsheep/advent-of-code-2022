@@ -22,12 +22,13 @@
 #define extr(a,b,c) ({TY(a) a_ = (a);TY(b) b_ = (b); a_ c b_ ? a_ : b_;})
 #define min(a,b) extr(a,b,<)
 #define max(a,b) extr(a,b,>)
+#define abs(a) ({TY(a) a_ = (a);a_<0?-a_:a_;})
 #define AS(a) assert(a);
 #define BK break;
 #define B(x) I((x),break)
 
 #define Pf(a...) printf(a)
-#define Sf(a...) printf(a)
+#define Sf(a...) scanf(a)
 #define Ss(a...) sscanf(a)
 #define Sp(a...) sprintf(a)
 #define Ms(a...) memset(a)
@@ -43,6 +44,8 @@
 
 #define W(x,a...) while(x){a;}
 #define LP(i,n,a...) for(TY(n)n_=(n),i=0;i<n_;i++){a;}
+#define i(x,a...) LP(i,x,a)
+#define j(x,a...) LP(j,x,a)
 #define LN(a) (SZ(a)/SZ(a[0]))
 
 #define I(x,a...) if (x){a;}
@@ -51,8 +54,8 @@
 #define SW(x,a...) switch(x){a;}
 #define CS(x,a...) case x:{a;}break;
 #define DF(a...) default:{a;}
-#define BZ(a) memset(a,0,SZ(a))
+#define BZ(a) Ms(a,0,SZ(a));
 
-TD double F;TD int I;TD char B;TD size_t N;TD long long L;TD unsigned int UI;TD unsigned long long UL;
+TD double F;TD int I;TD char B;TD size_t N;TD long long L;TD unsigned int UI;TD unsigned long long UL;TD size_t N;
 
 
