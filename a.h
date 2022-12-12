@@ -26,6 +26,21 @@
 #define BK break;
 #define B(x) I((x),break)
 
+#define Pf(a...) printf(a)
+#define Sf(a...) printf(a)
+#define Ss(a...) sscanf(a)
+#define Sp(a...) sprintf(a)
+#define Ms(a...) memset(a)
+#define Mm(a...) memmove(a)
+#define Mc(a...) memcpy(a)
+#define MC(a...) memchr(a)
+#define Sn(a...) strlen(a)
+#define SC(a...) strchr(a)
+#define SS(a...) strstr(a)
+#define SQ(a...) strcmp(a)
+#define MQ(a...) memcmp(a)
+#define MM(a...) memmem(a)
+
 #define W(x,a...) while(x){a;}
 #define LP(i,n,a...) for(TY(n)n_=(n),i=0;i<n_;i++){a;}
 #define LN(a) (SZ(a)/SZ(a[0]))

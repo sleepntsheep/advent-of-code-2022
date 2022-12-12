@@ -1,8 +1,6 @@
 #include "a.h"
 I ml=1,nm=0,i,j,k;
 S M{L a,i[1024],m,l,r;I n,t,f;B o;}ms[100],p1[100],p2[100];
-#define SS sscanf
-#define STC strchr
 
 I cm(const void*a,const void*b){X ((S M*)b)->a-((S M*)a)->a;}
 V rd(S M*ms,I dv){ LP(i,nm,S M*m=ms+i;m->a+=m->n;
