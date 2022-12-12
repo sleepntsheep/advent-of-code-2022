@@ -24,6 +24,7 @@
 #define max(a,b) extr(a,b,>)
 #define AS(a) assert(a);
 #define BK break;
+#define B(x) I((x),break)
 
 #define W(x,a...) while(x){a;}
 #define LP(i,n,a...) for(TY(n)n_=(n),i=0;i<n_;i++){a;}

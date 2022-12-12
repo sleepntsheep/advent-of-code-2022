@@ -10,14 +10,14 @@ V BFS(V) {
         ))
 }
 I main(V) {
-    W(fgets(b[n],SZ *b,stdin),I(b[n][0]==10,BK)n++)
+    W(fgets(b[n],SZ *b,stdin),B(b[n][0]==10)n++)
     m=strlen(b[0]);
     LP(i,n,LP(j,m,I(b[i][j]=='S',sx=j,sy=i)I(b[i][j]=='E',ex=j,ey=i)))
     memset(dp,77,SZ dp);b[sy][sx]='a';b[ey][ex]='z';
-    q[0]=(P){sy,sx};dp[sy][sx]=0; BFS();
+    q[0]=(P){sy,sx};dp[sy][sx]=0;BFS();
     printf("%d ", dp[ey][ex]); h=0,t=0;
     memset(dp,77,SZ dp);
-    LP(i,n,LP(j,m,I(b[i][j]=='a',q[h++]=(P){i,j},dp[i][j]=0))) BFS();
+    LP(i,n,LP(j,m,I(b[i][j]=='a',q[h++]=(P){i,j},dp[i][j]=0)))BFS();
     printf("%d", dp[ey][ex]);
     X 0;}
 
