@@ -16,7 +16,7 @@ Monkey 2:
   Starting items: 66
   Operation: new = old + 5
   Test: divisible by 5
-    If true: throw to monkey 7
+    If true: throw to monkey 7#
     If false: throw to monkey 5
 
 Monkey 3:

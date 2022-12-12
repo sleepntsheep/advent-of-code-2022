@@ -14,9 +14,8 @@ local input = {}
 for line in io.lines() do table.insert(input, line) end
 
 local function parse(lines)
-    local monkey_list = {}
+    local monkey_list = { lcm =  1}
     local linei = 1
-    monkey_list.lcm = 1
     while linei <= #lines do
         if lines[linei] ~= '' then
             local monkey = { items = {}, activity = 0, }
@@ -48,8 +47,7 @@ local function doround(monkey_list, do_divide)
             if item then
                 if     monkey.operator == '+' then item = leftoperand + rightoperand
                 elseif monkey.operator == '-' then item = leftoperand - rightoperand
-                elseif monkey.operator == '*' then item = leftoperand * rightoperand
-                elseif monkey.operator == '/' then item = leftoperand / rightoperand
+                elseif monkey.operator == '*' then item = leftoperand * rightoperand elseif monkey.operator == '/' then item = leftoperand / rightoperand
                 end
                 if do_divide then item = math.floor(item / 3) end
                 item = item % monkey_list.lcm
