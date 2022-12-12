@@ -8,6 +8,7 @@
 #define S struct
 #define TY __typeof__
 #define AD(x, a) TY(a)x=(a);
+#define CT continue
 #define C const
 #define ST static
 #define SZ sizeof
@@ -22,6 +23,7 @@
 #define min(a,b) extr(a,b,<)
 #define max(a,b) extr(a,b,>)
 #define AS(a) assert(a);
+#define BK break;
 
 #define W(x,a...) while(x){a;}
 #define LP(i,n,a...) for(TY(n)n_=(n),i=0;i<n_;i++){a;}
