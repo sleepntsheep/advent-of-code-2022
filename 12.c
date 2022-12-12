@@ -11,8 +11,8 @@ I main(V){
     m=Sn(b[0]);
     LP(i,n,LP(j,m,I(b[i][j]=='S',sx=j,sy=i)I(b[i][j]=='E',ex=j,ey=i)))
     Ms(dp,77,SZ dp);b[sy][sx]='a';b[ey][ex]='z';
-    q[0]=(P){sy,sx};dp[sy][sx]=0;BFS();
-    Pf("%d ", dp[ey][ex]); h=0,t=0; Ms(dp,77,SZ dp);
+    *q=(P){sy,sx};dp[sy][sx]=0;BFS();h=t=0;
+    Pf("%d ", dp[ey][ex]);Ms(dp,77,SZ dp);
     LP(i,n,LP(j,m,I(b[i][j]=='a',q[h++]=(P){i,j},dp[i][j]=0)))BFS();
     Pf("%d", dp[ey][ex]);X 0;}
 
