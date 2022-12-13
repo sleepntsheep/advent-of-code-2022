@@ -25,7 +25,7 @@
 #define abs(a) ({TY(a) a_ = (a);a_<0?-a_:a_;})
 #define AS(a) assert(a);
 #define BK break;
-#define B(x) I((x),break)
+#define B(x) I((x),BK)
 
 #define Pf(a...) printf(a)
 #define Sf(a...) scanf(a)
@@ -54,8 +54,7 @@
 #define SW(x,a...) switch(x){a;}
 #define CS(x,a...) case x:{a;}break;
 #define DF(a...) default:{a;}
-#define BZ(a) Ms(a,0,SZ(a));
+#define BZ(a,n) Ms(a,0,n);
 
-TD double F;TD int I;TD char B;TD size_t N;TD long long L;TD unsigned int UI;TD unsigned long long UL;TD size_t N;
-
+TD double F;TD int I;TD char B;TD size_t N;TD long long L;TD unsigned int UI;TD unsigned long long UL;TD size_t N;TD unsigned char UB;
 

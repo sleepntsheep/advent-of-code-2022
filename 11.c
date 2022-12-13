@@ -1,6 +1,6 @@
 #include "a.h"
-I ml=1,nm=0,i,j,k;
-S M{L a,i[1024],m,l,r;I n,t,f;B o;}ms[100],p1[100],p2[100];
+I ml=1,nm=0,i,j,k;B b[1024];
+S M{L a,i[1024],m,l,r;I n,t,f;B o;}ms[100],p1[100],p2[100],c;
 
 I cm(C V*a,C V*b){X ((S M*)b)->a-((S M*)a)->a;}
 V rd(S M*ms,I dv){ LP(i,nm,S M*m=ms+i;m->a+=m->n;
@@ -9,9 +9,8 @@ V rd(S M*ms,I dv){ LP(i,nm,S M*m=ms+i;m->a+=m->n;
                 e/=dv;e%=ml;S M*q=ms+(e%m->m?m->f:m->t);q->i[q->n++]=e;)
             m->n=0) }
 I main(V){
-    B b[1024]; S M c={0};
     W(fgets(b,SZ(b),stdin),
-        SW(b[8], CS(':', memset(&c,0,SZ(c));Ss(b+7,"%d",&nm))
+        SW(b[8], CS(':', BZ(&c,SZ c);Ss(b+7,"%d",&nm))
             CS('n',B*p=b+18;W(p,Ss(p,"%lld",&c.i[c.n++]);p=SC(p+1,',');I(p,p++)))
             CS('i',B*p=b+19;I(*p=='o',c.l=-1,p+=4)E(Ss(p,"%lld", &c.l);p=SC(p+1,' ')+1);c.o=*p;I(p[2]=='o',c.r=-1)E(Ss(p+2,"%lld",&c.r)))
             CS('d',Ss(b+21,"%lld",&c.m);ml*=c.m)
