@@ -39,7 +39,6 @@ while li < #lines do
         table.insert(packets, a)
         table.insert(packets, b)
         if sorted(a, b) == Less then
-            print(counter)
             score1 = score1 + counter
         end
         counter = counter + 1

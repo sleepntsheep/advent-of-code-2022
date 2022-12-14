@@ -5,6 +5,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define _(a...) {a;}
+#define R X
 #define S struct
 #define TY __typeof__
 #define AD(x, a) TY(a)x=(a);
@@ -35,12 +37,16 @@
 #define Mm(a...) memmove(a)
 #define Mc(a...) memcpy(a)
 #define MC(a...) memchr(a)
+#define Sc strcpy
 #define Sn(a...) strlen(a)
 #define SC(a...) strchr(a)
 #define SS(a...) strstr(a)
 #define SQ(a...) strcmp(a)
 #define MQ(a...) memcmp(a)
 #define MM(a...) memmem(a)
+#define Ma(a...) malloc(a)
+#define Ra(a...) realloc(a)
+#define Fr(a...) free(a)
 
 #define W(x,a...) while(x){a;}
 #define LP(i,n,a...) for(TY(n)n_=(n),i=0;i<n_;i++){a;}
