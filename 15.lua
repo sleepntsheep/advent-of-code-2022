@@ -89,8 +89,6 @@ if obs[target_y] then delta = - obs[target_y].count end
 part1 = range_count_impossible(get_range(target_y, -1e9, 1e9)) + delta
 
 -- part 2
--- since there is exactly one possible point,
--- that point can only be one point next to the edge of each diamond
 
 for y = 0, 4000000 do
     local l, r = 0, 4000000
