@@ -50,6 +50,7 @@
 
 #define W(x,a...) while(x){a;}
 #define LP(i,n,a...) for(TY(n)n_=(n),i=0;i<n_;i++){a;}
+#define LP1(i,s,n,a...) for(TY(n)n_=(n),i=(s);i<=n_;i++){a;}
 #define i(x,a...) LP(i,x,a)
 #define j(x,a...) LP(j,x,a)
 #define LN(a) (SZ(a)/SZ(a[0]))
