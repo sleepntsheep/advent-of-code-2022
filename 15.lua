@@ -1,5 +1,4 @@
 local sensors = {}
-local beacons = {}
 local data = {}
 local obs = {}
 
@@ -43,7 +42,6 @@ for line in io.lines() do
     if sx and sy and bx and by then
         sx = tonumber(sx) sy = tonumber(sy) bx = tonumber(bx) by = tonumber(by)
         table.insert(data, {sx = sx, sy = sy, bx = bx, by = by})
-
         add_obs(bx, by)
         add_obs(sx, sy)
     end
@@ -55,7 +53,6 @@ local function range_count_impossible(ranges)
     local last
     for _, range in ipairs(ranges) do
         local x, delta = range[1], range[2]
-
         state = state + delta
         if state == 1 and delta == 1 then
             last = x
@@ -68,14 +65,11 @@ local function range_count_impossible(ranges)
 end
 
 local function range_get_possible_spot(ranges)
-    local sum = 0
     local state = 0
-    local last
-    local last0
+    local last2
     for _, range in ipairs(ranges) do
         local x, delta = range[1], range[2]
         state = state + delta
-
         if state == 0 then
             last2 = x
         end
@@ -97,15 +91,6 @@ part1 = range_count_impossible(get_range(target_y, -1e9, 1e9)) + delta
 -- part 2
 -- since there is exactly one possible point,
 -- that point can only be one point next to the edge of each diamond
-
-local function ensure_possible(x, y)
-    for _, sensor in ipairs(sensors) do
-        if math.abs(sensor.x - x) + math.abs(sensor.y - y) <= sensor.d then
-            return false
-        end
-    end
-    return true
-end
 
 for y = 0, 4000000 do
     local l, r = 0, 4000000
