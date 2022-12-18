@@ -103,7 +103,7 @@ class NotTetris {
             return moved;
         }
 
-        uint64_t fast_simulate(uint64_t nrnd) {
+        void fast_simulate(uint64_t nrnd) {
             uint64_t crnd = 0;
 
             using pu64 = std::pair<uint64_t, uint64_t>;
@@ -115,7 +115,9 @@ class NotTetris {
 
                 if (mp.count({crnd % 5, jet_pos})) {
                     bool true_cycle = true;
-                    auto [height, start] = mp[{crnd % 5, jet_pos}];
+                    auto val = mp[{crnd % 5, jet_pos}];
+                    auto height = val.first;
+                    auto start = val.second;
 
                     constexpr int N_CHECK_ROW = 16;
                     for (size_t i = 1; i <= N_CHECK_ROW; i++) {
@@ -136,8 +138,6 @@ class NotTetris {
                     mp[{crnd % 5, jet_pos}] = {get_height(), crnd};
                 }
             }
-
-            return get_height();
         }
 
         std::vector<uint8_t> v;
@@ -155,12 +155,11 @@ int main()
 
     { // PART 1
         NotTetris nt(jet);
-        for (int rnd = 0; rnd < 2022; rnd++) nt.round();
-        //nt.print();
+        nt.fast_simulate(2022);
         std::cout << nt.get_height() << ' ';
     }
 
-    { // PART 2 NOT DONE
+    { // PART 2
         NotTetris nt(jet);
         nt.fast_simulate(1000000000000LL);
         std::cout << nt.get_height() << std::endl;
