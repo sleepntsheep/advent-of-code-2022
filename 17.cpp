@@ -153,17 +153,11 @@ int main()
     std::string jet;
     std::cin >> jet;
 
-    { // PART 1
-        NotTetris nt(jet);
-        nt.fast_simulate(2022);
-        std::cout << nt.get_height() << ' ';
-    }
-
-    { // PART 2
-        NotTetris nt(jet);
-        nt.fast_simulate(1000000000000LL);
-        std::cout << nt.get_height() << std::endl;
-    }
+    NotTetris nt(jet);
+    nt.fast_simulate(2022);
+    std::cout << nt.get_height() << ' ';
+    nt.fast_simulate(1000000000000LL - 2022);
+    std::cout << nt.get_height() << std::endl;
 
     return EXIT_SUCCESS;
 }
