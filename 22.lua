@@ -1,3 +1,4 @@
+#!/usr/bin/lua
 
 Adj4 = { {x = 1, y = 0}, {x = 0, y = 1}, {x = -1, y = 0}, {x = 0, y = -1} }
 
@@ -116,17 +117,6 @@ for line in io.lines() do table.insert(input, line) end
 local grid, actions, state = parse(input)
 
 for _, action in ipairs(actions) do
-    --[[
-    print('\n\n\n')
-    for i = 1, #grid do
-        for j = 1, #grid[i] do
-            io.write(grid[i][j])
-        end
-        io.write('\n')
-    end
-    print(state.x, state.y, state.direction - 1)
-    print('Action', action.turn, action.move)
-    --]]
     grid, state = do_action(grid, action, state)
 end
 
